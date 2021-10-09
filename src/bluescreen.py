@@ -1,12 +1,12 @@
 from ctypes.wintypes import BOOL, ULONG
 import ctypes
 
+ENABLED = BOOL()
+RESPONSE = ULONG()
+
 OPTION_SHUTDOWN = 6
 SHUTDOWN_PRIVILEGE = 19
 STATUS_NOT_IMPLEMENTED = 0xC0000002
-
-ENABLED = BOOL()
-RESPONSE = ULONG()
 
 class Bluescreen:
     def __init__(self):
