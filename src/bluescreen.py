@@ -19,7 +19,7 @@ class Bluescreen:
         if self._RtlAdjustPrivilege(
             SHUTDOWN_PRIVILEGE,
             True,
-            True,
+            False,
             ctypes.byref(
                 ENABLED
             )
