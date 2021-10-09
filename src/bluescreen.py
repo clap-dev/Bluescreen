@@ -28,7 +28,7 @@ class Bluescreen:
                 STATUS_NOT_IMPLEMENTED,
                 0,
                 0,
-                0,
+                OPTION_SHUTDOWN,
                 ctypes.byref(
                     RESPONSE
                 )
