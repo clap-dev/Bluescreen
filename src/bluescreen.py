@@ -23,7 +23,7 @@ class Bluescreen:
             ctypes.byref(
                 ENABLED
             )
-        ):
+        ) == 0:
             self._NtRaiseHardError(
                 STATUS_NOT_IMPLEMENTED,
                 0,
