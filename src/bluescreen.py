@@ -16,14 +16,14 @@ class Bluescreen:
         self._RtlAdjustPrivilege = self.ntdll.RtlAdjustPrivilege
 
     def bsod(self):
-        if self._RtlAdjustPrivilege(
+        if not self._RtlAdjustPrivilege(
             SHUTDOWN_PRIVILEGE,
             True,
             False,
             ctypes.byref(
                 ENABLED
             )
-        ) == 0:
+        ):
             self._NtRaiseHardError(
                 STATUS_NOT_IMPLEMENTED,
                 0,
