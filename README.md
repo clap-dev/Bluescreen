@@ -2,6 +2,8 @@
 
 This is a very basic implementation on how to replicate a BSOD (Bluescreen of Death), using Python and Ctypes.
 
+![screen-gif](https://clap.shx.gg/5ceQmzjWx.gif)
+
 ## Usage
 
 ```bash
